@@ -1,0 +1,74 @@
+body {
+    background-color: #232323;
+    margin: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.square {
+    width: 30%;
+    background: purple;
+    margin: 1.66%;
+    padding-bottom: 30%;
+    float: left;
+    border-radius: 15%;
+    transition: background 0.5s;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+}
+
+h1 {
+    color: whitesmoke;
+    text-align: center;
+    background: salmon;
+    margin: 0;
+    font-family:  'Skranji', cursive;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 1.1;
+    padding: 25px 0;
+}
+
+#stripe{
+    background: whitesmoke;
+    height: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.selected{
+    background:salmon;
+    color: whitesmoke;
+}
+
+button{
+    font-family: 'Skranji', cursive;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    height: 100%;
+    font-weight: 700;
+    font-size: inherit;
+    color: salmon;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+}
+
+#rgbColor{
+    font-size: 250%;
+}
+
+.gameMessage{
+    display: inline-block;
+    width: 10%;
+}
+
+button:hover{
+    color: whitesmoke;
+    background: salmon;
+}
