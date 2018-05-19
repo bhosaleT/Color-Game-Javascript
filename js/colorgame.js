@@ -19,18 +19,18 @@ var modeButtons = document.querySelectorAll(".mode");
 
 //adding functionality to functions.
 modeButtons.forEach(element => {
-    element.addEventListener("click" ,()=>{
+    element.addEventListener("click", () => {
         modeButtons[0].classList.remove("selected");
         modeButtons[1].classList.remove("selected");
         element.classList.add("selected");
-        element.textContent === "EASY" ? numSquares = 3: numSquares = 6;
+        element.textContent === "EASY" ? numSquares = 3 : numSquares = 6;
         reset();
     });
 });
 
 
 //reset function
-function reset(){
+function reset() {
     colors = generateRandomColors(numSquares);
     //pick a new random color from array
     questionColor = pickRandomColor();
@@ -38,12 +38,11 @@ function reset(){
     colorDisplay.textContent = questionColor;
     gameMessage.textContent = "";
     //change colors of squares.
-    for(var i = 0; i< squares.length; i++)
-    {
-        if(colors[i]){
+    for (var i = 0; i < squares.length; i++) {
+        if (colors[i]) {
             squares[i].style.backgroundColor = colors[i];
             squares[i].style.display = 'block';
-        }else{
+        } else {
             squares[i].style.display = 'none';
         }
     }
@@ -54,20 +53,7 @@ function reset(){
 //reset button to refresh the image colors.
 resetButton.addEventListener("click", () => {
     //generate all new colors
-    numSquares = 6;
-    colors = generateRandomColors(numSquares);
-    //pick a new random color from array
-    questionColor = pickRandomColor();
-    resetButton.textContent = "NEW COLORS";
-    colorDisplay.textContent = questionColor;
-    gameMessage.textContent = "";
-    //change colors of squares.
-    squares.forEach((element, index) => {
-        element.style.backgroundColor = colors[index];
-        squares[index].style.display = 'block';
-    });
-    //reset background color.
-    title.style.backgroundColor = "salmon";
+    reset();
 });
 
 
