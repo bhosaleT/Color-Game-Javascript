@@ -15,43 +15,41 @@ var gameMessage = document.querySelector(".gameMessage");
 
 var resetButton = document.querySelector("#reset");
 
-var easyButton = document.querySelector("#easyBtn");
+var modeButtons = document.querySelectorAll(".mode");
 
-var hardButton = document.querySelector("#hardBtn");
+//adding functionality to functions.
+modeButtons.forEach(element => {
+    element.addEventListener("click" ,()=>{
+        modeButtons[0].classList.remove("selected");
+        modeButtons[1].classList.remove("selected");
+        element.classList.add("selected");
+        element.textContent === "EASY" ? numSquares = 3: numSquares = 6;
+        reset();
+    });
+});
 
 
-easyButton.addEventListener("click", () => {
-    easyButton.classList.add("selected");
-    hardButton.classList.remove("selected");
-    numSquares = 3;
+//reset function
+function reset(){
     colors = generateRandomColors(numSquares);
+    //pick a new random color from array
     questionColor = pickRandomColor();
+    resetButton.textContent = "NEW COLORS";
     colorDisplay.textContent = questionColor;
-    //disable the bottom row of colors
-    squares.forEach((element, index) => {
-        if (colors[index]) {
-            squares[index].style.backgroundColor = colors[index];
-        } else {
-            squares[index].style.display = 'none';
+    gameMessage.textContent = "";
+    //change colors of squares.
+    for(var i = 0; i< squares.length; i++)
+    {
+        if(colors[i]){
+            squares[i].style.backgroundColor = colors[i];
+            squares[i].style.display = 'block';
+        }else{
+            squares[i].style.display = 'none';
         }
-    });
-});
-
-
-hardButton.addEventListener("click", () => {
-    hardButton.classList.add("selected");
-    easyButton.classList.remove("selected");
-    numSquares = 6;
-    colors = generateRandomColors(numSquares);
-    questionColor = pickRandomColor();
-    colorDisplay.textContent = questionColor;
-
-    squares.forEach((element, index) => {
-        element.style.backgroundColor = colors[index];
-        squares[index].style.display = 'block';
-    });
-});
-
+    }
+    //reset background color.
+    title.style.backgroundColor = "salmon";
+}
 
 //reset button to refresh the image colors.
 resetButton.addEventListener("click", () => {
